@@ -1,0 +1,1 @@
+# szoftver_teszteles
