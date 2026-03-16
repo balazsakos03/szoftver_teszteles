@@ -51,3 +51,14 @@ def test_gretchen_salary(rm):
     
     assert gretchen is not None
     assert gretchen.base_salary == 4000
+
+# 5. Make sure Tomas Andre is not a team leader. Check what happens if you try to retrieve his team members.
+def test_tomas_andre_not_leader(rm):
+    tomas = get_employee_by_name(rm, "Tomas", "Andre")
+    
+    assert tomas is not None
+    assert rm.is_leader(tomas) is False
+    
+    #ha valaki nem leader akkor None jon vissza
+    team = rm.get_team_members(tomas)
+    assert team is None
