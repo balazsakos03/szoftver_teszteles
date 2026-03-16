@@ -44,3 +44,10 @@ def test_tomas_andre_not_in_johns_team(rm):
     member_names = [f"{e.first_name} {e.last_name}" for e in members]
     
     assert "Tomas Andre" not in member_names
+
+# 4. Check if Gretchen Walford’s base salary equals 4000$.
+def test_gretchen_salary(rm):
+    gretchen = get_employee_by_name(rm, "Gretchen", "Walford")
+    
+    assert gretchen is not None
+    assert gretchen.base_salary == 4000
