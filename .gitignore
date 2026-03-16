@@ -159,3 +159,23 @@ cython_debug/
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
+
+pytest-env/
+venv/
+env/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+.idea/
+.vscode/
+*.swp
+
+.DS_Store
+Thumbs.db
