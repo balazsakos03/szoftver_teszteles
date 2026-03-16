@@ -62,3 +62,9 @@ def test_tomas_andre_not_leader(rm):
     #ha valaki nem leader akkor None jon vissza
     team = rm.get_team_members(tomas)
     assert team is None
+
+# 6. Make sure that Jude Overcash is not stored in the database.
+def test_jude_overcash_not_in_db(rm):
+    jude = get_employee_by_name(rm, "Jude", "Overcash")
+    
+    assert jude is None
