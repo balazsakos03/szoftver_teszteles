@@ -34,3 +34,13 @@ def test_john_doe_team_members(rm):
     
     assert "Myrta Torkelson" in member_names
     assert "Jettie Lynch" in member_names
+
+# 3. Make sure that Tomas Andre is not John Doe’s team member.
+def test_tomas_andre_not_in_johns_team(rm):
+    john = get_employee_by_name(rm, "John", "Doe")
+    member_ids = rm.get_team_members(john)
+    
+    members = [e for e in rm.get_all_employees() if e.id in member_ids]
+    member_names = [f"{e.first_name} {e.last_name}" for e in members]
+    
+    assert "Tomas Andre" not in member_names
