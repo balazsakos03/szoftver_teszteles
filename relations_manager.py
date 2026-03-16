@@ -14,7 +14,7 @@ class RelationsManager:
             Employee(id=3, first_name="Jettie", last_name="Lynch", base_salary=1500,
                      birth_date=datetime.date(1987, 1, 1), hire_date=datetime.date(2015, 1, 1)),
 
-            Employee(id=4, first_name="Gretchen", last_name="Watford", base_salary=4000,
+            Employee(id=4, first_name="Gretchen", last_name="Walford", base_salary=4000,
                      birth_date=datetime.date(1960, 1, 1), hire_date=datetime.date(1990, 1, 1)),
 
             Employee(id=5, first_name="Tomas", last_name="Andre", base_salary=1600,
