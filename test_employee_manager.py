@@ -37,3 +37,25 @@ def test_regular_employee_salary(em):
     salary = em.calculate_salary(emp)
     
     assert salary == 3000
+
+
+# 2. Check an employee’s salary who is a team leader and his team consists of 3 members. 
+# She was hired on 10.10.2008 and has a base salary of 2000$. 
+# Validate if the returned value is 3600$ (2000$ + 10 X 100$ + 3 X 200$).
+@patch('employee_manager.datetime.date', MockDate)
+def test_leader_salary_with_3_members(em, rm):
+    #vezeto letrehozasa
+    leader = Employee(
+        id=100, first_name="Boss", last_name="Lady", base_salary=2000,
+        birth_date=datetime.date(1980, 1, 1), 
+        hire_date=datetime.date(2008, 10, 10)
+    )
+    
+    #nem adatbazisbol van ezert beavatkozas a relationsmanagerbe
+    #rafogjuk hogy o egy vezeto es harom embere van
+    rm.is_leader = MagicMock(return_value=True)
+    rm.get_team_members = MagicMock(return_value=[101, 102, 103]) #harom fos csapat
+    
+    salary = em.calculate_salary(leader)
+    
+    assert salary == 3600
